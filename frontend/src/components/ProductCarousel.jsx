@@ -5,6 +5,7 @@ import { useGetTopProductsQuery } from '../slices/productsApiSlice';
 import { addCurrency } from '../utils/addCurrency';
 import Loader from './Loader';
 import Message from './Message';
+import { BASE_URL } from '../constants';
 
 const ProductCarousel = () => {
   const { data: products } = useGetTopProductsQuery();
@@ -14,7 +15,7 @@ const ProductCarousel = () => {
         <Carousel.Item key={product._id} interval={3000}>
           <Link to={`/product/${product._id}`}>
             <Image
-              src={product.image}
+              src={`${BASE_URL}${product.image}`}
               alt={product.name}
               fluid
               style={{ height: '500px' }}

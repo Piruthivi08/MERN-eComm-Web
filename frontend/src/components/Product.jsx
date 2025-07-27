@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { addCurrency } from '../utils/addCurrency';
 import { addToCart } from '../slices/cartSlice';
 import Rating from './Rating';
+import { BASE_URL } from '../constants';
 import { toast } from 'react-toastify';
 const Product = ({ product }) => {
   const [qty, setQty] = useState(1);
@@ -27,7 +28,7 @@ const addToCartHandler = () => {
       >
         <Card.Img
           variant='top'
-          src={product.image}
+          src={`${BASE_URL}${product.image}`}
           style={{ height: '200px', objectFit: 'contain' }}
         />
         <Card.Body>

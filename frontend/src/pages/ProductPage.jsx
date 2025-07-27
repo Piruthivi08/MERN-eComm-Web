@@ -21,6 +21,7 @@ import { toast } from 'react-toastify';
 import Rating from '../components/Rating';
 import Loader from '../components/Loader';
 import Message from '../components/Message';
+import { BASE_URL } from '../constants';
 import Meta from '../components/Meta';
 import { addCurrency } from '../utils/addCurrency';
 import Reviews from '../components/Reviews';
@@ -85,7 +86,7 @@ const addToCartHandler = () => {
           <Meta title={product.name} description={product.description} />
           <Row>
             <Col md={5}>
-              <Image src={product.image} alt={product.name} fluid />
+              <Image src={`${BASE_URL}${product.image}`} alt={product.name} fluid />
               <Row className='review d-none d-md-block'>
                 <Col>
                   <Reviews
