@@ -56,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
 app.get('/api/v1/seed', async (req, res) => {
   try {
     await importData(); // Run your seeder.js
-    res.status(200).send('Database seeded successfully!');
+    res.status(200).send('Database seeded successfully!!!!');
   } catch (error) {
     res.status(500).send(`Error seeding database: ${error.message}`);
   }
