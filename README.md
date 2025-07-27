@@ -4,7 +4,7 @@ Welcome to the eCommerce Platform — a full-featured online shopping solution b
 ⚠️ Note: The application is hosted on Render’s free tier, which may result in a few seconds delay on the first request after 15 minutes of inactivity. Subsequent requests will be faster.
 
 🚀 Live Demo
-Live Application Link (Replace with actual link when available)
+Live Application Link https://mern-ecomm-web-1.onrender.com
 
 🔑 Sample User Logins
 🧑‍💼 Admin
