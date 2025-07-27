@@ -11,6 +11,7 @@ import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
 
+
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
 
@@ -35,6 +36,7 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/orders', orderRoutes);
 app.use('/api/v1/upload', uploadRoutes);
 app.use('/api/v1/payment', paymentRoutes);
+
 //-------------------------------------
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')));
@@ -50,6 +52,8 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //-------------------------------------
+
+
 app.use(notFound);
 app.use(errorHandler);
 
