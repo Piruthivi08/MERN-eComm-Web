@@ -10,6 +10,7 @@ import userRoutes from './routes/userRoutes.js';
 import orderRoutes from './routes/orderRoutes.js';
 import uploadRoutes from './routes/uploadRoutes.js';
 import paymentRoutes from './routes/paymentRoutes.js';
+import importData from './seeder/seeder.js';
 
 import connectDB from './config/db.js';
 import { notFound, errorHandler } from './middleware/errorMiddleware.js';
@@ -35,6 +36,7 @@ app.use('/api/v1/users', userRoutes);
 app.use('/api/v1/orders', orderRoutes);
 app.use('/api/v1/upload', uploadRoutes);
 app.use('/api/v1/payment', paymentRoutes);
+
 //-------------------------------------
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static(path.join(__dirname, '/frontend/build')));
@@ -50,6 +52,16 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 //-------------------------------------
+// TEMP SEED ROUTE — remove after seeding once!
+app.get('/api/v1/seed', async (req, res) => {
+  try {
+    await importData(); // Run your seeder.js
+    res.status(200).send('Database seeded successfully!');
+  } catch (error) {
+    res.status(500).send(`Error seeding database: ${error.message}`);
+  }
+});
+
 app.use(notFound);
 app.use(errorHandler);
 
